@@ -26,15 +26,16 @@ def pwned_api_check(password):
 
 
 def main(args):
+    message = ""
     for _ in args:
         count = pwned_api_check(args)
         if count:
-            print(f"{args} was found {count} times.... you should probably change your password!")
+            message = f"{args} was found {count} times.... you should probably change your password!"
             break
         else:
-            print(f"{args} was not found. Carry on!")
+            message = f"{args} was not found. Carry on!"
             break
-    return "Done!" 
+    return message 
 
 if __name__ == '__main__':
     sys.exit(main(sys.argv[1:]))

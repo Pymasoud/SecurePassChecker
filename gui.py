@@ -12,7 +12,7 @@ import tkinter as tk
 """
 
 root = tk.Tk()
-root.geometry("600x400")
+root.geometry("900x300")
 root.title("Check My Pass!")
 root.configure(background="#333")
 
@@ -23,12 +23,12 @@ def check_password(*args, **kwargs):
    output_label.config(text=check)
    
 # top frame -----------------------------------------
-top_frame = tk.Frame(root, background="#444", padx=90)
+top_frame = tk.Frame(root, background="#444", padx=10)
 top_frame.pack(side="top")
 
 # bottom frame ---------------------------------------------------
-bottom_frame = tk.Frame(root, background="#444", padx=200, pady=50)
-bottom_frame.pack(side="bottom", pady=20)
+bottom_frame = tk.Frame(root)
+bottom_frame.pack(side="bottom")
 
 password = tk.StringVar()
 
@@ -48,7 +48,7 @@ check_btn.config(font=("Arial", 12))
 
 # ===================================================================
 # In the bottom frame
-output_label = tk.Label(bottom_frame, text="Output",background="#444", foreground="#fff",padx=90, pady=10)
+output_label = tk.Label(bottom_frame, background="#333", foreground="#fff", pady=40)
 output_label.pack()
 output_label.config(font=("Arial", 12))
 

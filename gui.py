@@ -1,5 +1,6 @@
 from checkmypass import main
 import tkinter as tk
+from typing import List
 
 # test comment
 
@@ -16,11 +17,10 @@ root.title("Check My Pass!")
 root.configure(background="#333")
 
 # Functions ------------------------------------------------------
-def check_password(*args, **kwargs):
-   pword = password.get()
-   check = main(pword)
-   output_label.config(text=check)
-   
+def check_password(*args, **kwargs) -> None:
+    pword = password.get()
+    result = main([pword])[0].strip('{}')
+    output_label.config(text=result)
 # top frame -----------------------------------------
 top_frame = tk.Frame(root, background="#444", padx=10)
 top_frame.pack(side="top")
@@ -32,7 +32,7 @@ bottom_frame.pack(side="bottom")
 password = tk.StringVar()
 
 # ===============================================================
-# In the top framew
+# In the top frame
 password_label = tk.Label(top_frame, text="Enter your Password: ")
 password_label.pack(pady=30, padx=20)
 password_label.config(font=("Arial", 20))
@@ -55,6 +55,6 @@ output_label.pack()
 output_label.config(font=("Arial", 12))
 
 # bind the enter key to enter button
-root.bind("<Return>",check_password)
+password_input.bind("<Return>", lambda event=None: check_password())
 
 root.mainloop()

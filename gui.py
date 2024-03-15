@@ -1,9 +1,8 @@
 from checkmypass import main
 import tkinter as tk
 
-# ----- This works ---------
-# check = main("345hey")
-# print(check)
+# test comment
+
 """
    so now i can use main() with the input from tkinter
    but i need to work out a function that gets the password

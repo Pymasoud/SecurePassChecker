@@ -18,6 +18,7 @@ def get_password_leaks_count(hashes: requests.Response, hash_to_check: str) -> i
     return 0
 
 def pwned_api_check(password: str) -> int:
+    # Check password if it exists in API response.
     sha1password = hashlib.sha1(password.encode('utf-8')).hexdigest().upper()
     first5, tail = sha1password[:5], sha1password[5:]
     response = request_api_data(first5)

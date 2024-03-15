@@ -12,7 +12,7 @@ import tkinter as tk
 """
 
 root = tk.Tk()
-root.geometry("900x300")
+root.geometry("900x350")
 root.title("Check My Pass!")
 root.configure(background="#333")
 
@@ -41,8 +41,11 @@ password_label.config(font=("Arial", 20))
 password_input = tk.Entry(top_frame, textvariable=password, width=50)
 password_input.pack(pady=10, ipady=10)
 password_input.config(font=("Arial", 20))
+password_input.focus()
 
-check_btn = tk.Button(top_frame, text="Check Password", command=check_password)
+message_label = tk.Label(top_frame, text="Click button or press ENTER")
+message_label.pack()
+check_btn = tk.Button(top_frame, text="Check Password", command=check_password, background="#333", foreground="chartreuse")
 check_btn.pack(padx=10, pady=10)
 check_btn.config(font=("Arial", 12))
 
@@ -51,5 +54,8 @@ check_btn.config(font=("Arial", 12))
 output_label = tk.Label(bottom_frame, background="#333", foreground="#fff", pady=40)
 output_label.pack()
 output_label.config(font=("Arial", 12))
+
+# bind the enter key to enter button
+root.bind("<Return>",check_password)
 
 root.mainloop()
